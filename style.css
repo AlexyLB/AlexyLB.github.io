@@ -455,12 +455,21 @@ header.scrolled {
 
 .project-card {
     position: relative;
+
+    /* Empêche une image très grande de forcer
+       la grille à s'agrandir (bug classique de CSS Grid) */
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .project-media {
     width: 100%;
 
-    aspect-ratio: 16 / 10;
+    /* Hauteur fixe plutôt que aspect-ratio :
+       garantit un recadrage identique quelle que soit
+       la taille du fichier importé. */
+    height: 260px;
 
     background: #111;
 
@@ -475,6 +484,7 @@ header.scrolled {
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
     display: block;
 }
@@ -567,6 +577,14 @@ header.scrolled {
 
 .photo-item img {
     width: 100%;
+
+    /* Empêche une photo extrêmement haute (planche
+       contact, export multi-images...) de déborder
+       et de casser la mise en page masonry. */
+    max-height: 640px;
+
+    object-fit: cover;
+    object-position: center;
 
     display: block;
 
@@ -768,6 +786,14 @@ footer {
 
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-media {
+        height: 220px;
+    }
+
+    .photo-item img {
+        max-height: 420px;
     }
 
     .video-info {
