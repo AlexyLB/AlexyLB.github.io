@@ -25,6 +25,763 @@
         href="style.css"
     >
 
+    <link
+        rel="icon"
+        href="data:,"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <a
+        href="#"
+        class="logo"
+        id="logo"
+        onclick="showHome()"
+    >
+        ALEXY
+    </a>
+
+
+    <nav class="menu">
+
+        <a
+            href="#book"
+            onclick="showHome()"
+        >
+            Book
+        </a>
+
+        <a
+            href="#about"
+            onclick="openPage('about')"
+        >
+            À propos
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     ACCUEIL
+===================================================== -->
+
+<main id="home">
+
+
+    <section class="home">
+
+        <div class="home-content">
+
+
+            <div class="eyebrow">
+                Portfolio — Audiovisuel
+            </div>
+
+
+            <h1 id="hero-name">
+
+                ALEXY<br>
+
+                <span>
+                    Créateur.
+                </span>
+
+            </h1>
+
+
+            <p
+                class="home-description"
+                id="hero-description"
+            >
+
+                Je construis progressivement mon univers
+                autour de l'image, de la vidéo, du cinéma
+                et du montage.
+
+            </p>
+
+
+            <p
+                class="home-description"
+                id="hero-subdescription"
+            >
+
+                Ce book rassemble mes projets,
+                mes expérimentations et mes compétences.
+
+            </p>
+
+
+            <a
+                href="#book"
+                class="enter"
+            >
+
+                Entrer dans le book
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+<!-- =====================================================
+     MENU DU BOOK
+===================================================== -->
+
+    <section
+        class="book"
+        id="book"
+    >
+
+
+        <div class="book-header">
+
+
+            <div>
+
+                <div class="eyebrow">
+                    Portfolio
+                </div>
+
+
+                <h2 class="book-title">
+                    Explorer.
+                </h2>
+
+            </div>
+
+
+            <p class="book-intro">
+
+                Différentes facettes de mon parcours
+                audiovisuel réunies dans un même espace.
+
+            </p>
+
+
+        </div>
+
+
+        <div
+            class="categories"
+            id="categories"
+        >
+
+            <!--
+                ⭐ FALLBACK INSTANTANÉ
+                Ces cartes sont visibles immédiatement.
+                contenu.js peut ensuite modifier leurs textes,
+                les masquer ou en ajouter automatiquement.
+            -->
+
+            <div class="category" data-category-id="cinema" onclick="openPage('cinema')">
+                <div class="category-number">01</div>
+                <h2>Cinéma</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Réalisation, narration, mise en scène et projets cinématographiques.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="video" onclick="openPage('video')">
+                <div class="category-number">02</div>
+                <h2>Vidéo</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Plans, tournages, créations personnelles et expérimentations.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="photo" onclick="openPage('photo')">
+                <div class="category-number">03</div>
+                <h2>Photographie</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Images, cadrage, lumière et recherche d'une esthétique personnelle.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="montage" onclick="openPage('montage')">
+                <div class="category-number">04</div>
+                <h2>Montage</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Montage vidéo, rythme, effets, compositing et post-production.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="projects" onclick="openPage('projects')">
+                <div class="category-number">05</div>
+                <h2>Projets</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Projets personnels, scolaires et expérimentations.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="skills" onclick="openPage('skills')">
+                <div class="category-number">06</div>
+                <h2>Compétences</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Outils, logiciels, techniques et savoir-faire.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+            <div class="category" data-category-id="about" onclick="openPage('about')">
+                <div class="category-number">07</div>
+                <h2>À propos</h2>
+                <div class="category-bottom">
+                    <p class="category-description">
+                        Mon parcours, mes objectifs et mon univers créatif.
+                    </p>
+                    <div class="arrow">→</div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     CINÉMA
+===================================================== -->
+
+<section
+    class="page"
+    id="cinema"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                01 — CINÉMA
+            </div>
+
+            <h1>
+                Cinéma
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="project-grid"
+        id="cinema-list"
+    >
+
+        <!-- Contenu à venir -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDÉO
+===================================================== -->
+
+<section
+    class="page"
+    id="video"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                02 — VIDÉO
+            </div>
+
+            <h1>
+                Vidéo
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div id="video-list">
+
+        <!-- Les vidéos sont générées automatiquement -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PHOTOGRAPHIE
+===================================================== -->
+
+<section
+    class="page"
+    id="photo"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                03 — PHOTOGRAPHIE
+            </div>
+
+            <h1>
+                Photographie
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="photo-grid"
+        id="photo-list"
+    >
+
+        <!-- Les photos sont générées automatiquement -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     MONTAGE
+===================================================== -->
+
+<section
+    class="page"
+    id="montage"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                04 — MONTAGE
+            </div>
+
+            <h1>
+                Montage
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div class="about-content">
+
+
+        <p class="about-lead">
+
+            Transformer des images
+            en une histoire.
+
+        </p>
+
+
+        <div class="about-text">
+
+
+            <p>
+
+                Cette rubrique présentera mes travaux
+                de montage, mes expérimentations et mes
+                recherches autour du rythme et de la narration.
+
+            </p>
+
+
+            <p>
+
+                Je pourrai également y présenter mes travaux
+                réalisés avec Premiere Pro, After Effects
+                et les différentes techniques de post-production.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJETS
+===================================================== -->
+
+<section
+    class="page"
+    id="projects"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                05 — PROJETS
+            </div>
+
+            <h1>
+                Projets
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="project-grid"
+        id="project-list"
+    >
+
+        <!-- Les projets sont générés automatiquement -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPÉTENCES
+===================================================== -->
+
+<section
+    class="page"
+    id="skills"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                06 — COMPÉTENCES
+            </div>
+
+            <h1>
+                Compétences
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="skills"
+        id="skills-list"
+    >
+
+        <!-- Les compétences sont générées automatiquement -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     À PROPOS
+===================================================== -->
+
+<section
+    class="page"
+    id="about"
+>
+
+
+    <div class="page-top">
+
+
+        <div>
+
+            <div class="page-number">
+                07 — À PROPOS
+            </div>
+
+            <h1>
+                À propos
+            </h1>
+
+        </div>
+
+
+        <button
+            class="back"
+            onclick="showHome()"
+        >
+            ← Retour au book
+        </button>
+
+
+    </div>
+
+
+    <div class="about-content">
+
+
+        <p
+            class="about-lead"
+            id="about-lead"
+        >
+
+            Passionné par l'image,
+            le cinéma et la création audiovisuelle.
+
+        </p>
+
+
+        <div class="about-text">
+
+
+            <p id="about-text-1">
+
+                Je construis progressivement mon parcours
+                dans l'audiovisuel.
+
+            </p>
+
+
+            <p id="about-text-2">
+
+                Ce portfolio présente mon évolution,
+                mes créations et mes compétences.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="contact-box">
+
+
+            <a
+                id="email-link"
+                class="contact-link"
+                href="#"
+            >
+                Email
+            </a>
+
+
+            <a
+                id="instagram-link"
+                class="contact-link"
+                href="#"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+
+            <a
+                id="youtube-link"
+                class="contact-link"
+                href="#"
+                target="_blank"
+            >
+                YouTube
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <span>
+        © 2026 — ALEXY
+    </span>
+
+    <span>
+        PORTFOLIO AUDIOVISUEL
+    </span>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="contenu.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ALEXY — Portfolio Audiovisuel
+    </title>
+
+    <meta
+        name="description"
+        content="Portfolio audiovisuel d'Alexy."
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 
