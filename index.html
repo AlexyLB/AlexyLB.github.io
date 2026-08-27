@@ -1,370 +1,1209 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Alexy — Portfolio Audiovisuel</title>
-
-    <meta name="description" content="Portfolio audiovisuel d'Alexy — réalisation, montage et création vidéo.">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 25px 6%;
-
-            background: linear-gradient(
-                to bottom,
-                rgba(0,0,0,0.8),
-                transparent
-            );
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            opacity: 0.75;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-
-            padding: 120px 8%;
-
-            background:
-                radial-gradient(
-                    circle at 70% 40%,
-                    rgba(255,255,255,0.08),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #080808,
-                    #111111
-                );
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .small-title {
-            font-size: 13px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 9vw, 120px);
-            line-height: 0.9;
-            letter-spacing: -5px;
-            margin-bottom: 35px;
-        }
-
-        .hero h1 span {
-            color: #888;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: #aaa;
-            font-size: 18px;
-            margin-bottom: 45px;
-        }
-
-        .button {
-            display: inline-block;
-
-            padding: 15px 28px;
-
-            border: 1px solid #555;
-            border-radius: 100px;
-
-            font-size: 14px;
-
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: white;
-            color: black;
-            border-color: white;
-        }
-
-        /* SECTION */
-
-        section {
-            padding: 120px 8%;
-        }
-
-        .section-title {
-            font-size: 12px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #777;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            margin-bottom: 20px;
-        }
+<title>ALEXY — Portfolio Audiovisuel</title>
 
-        .section-heading {
-            font-size: clamp(35px, 5vw, 65px);
-            line-height: 1;
-            margin-bottom: 60px;
-        }
+<meta name="description" content="Portfolio audiovisuel d'Alexy. Cinéma, vidéo, photographie, montage et projets créatifs.">
 
-        /* PROJECT */
+<style>
 
-        .project {
-            max-width: 1100px;
-            margin: auto;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap');
 
-        .project-video {
-            width: 100%;
-            border-radius: 12px;
 
-            display: block;
+/* =========================================================
+   BASE
+========================================================= */
 
-            background: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.5);
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .project-info {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-
-            margin-top: 45px;
-        }
+body {
+    background: #070707;
+    color: #f4f4f4;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
 
-        .project-number {
-            color: #666;
-            font-size: 14px;
-            letter-spacing: 3px;
-        }
-
-        .project-info h3 {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .project-info p {
-            color: #999;
-            max-width: 650px;
-        }
-
-        /* ABOUT */
-
-        .about {
-            background: #101010;
-        }
-
-        .about-content {
-            max-width: 850px;
-        }
-
-        .about-content p {
-            color: #aaa;
-            font-size: 20px;
-            margin-bottom: 25px;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: clamp(45px, 7vw, 90px);
-            line-height: 0.95;
-            margin-bottom: 35px;
-        }
-
-        .contact p {
-            color: #888;
-            margin-bottom: 40px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 40px 8%;
-
-            display: flex;
-            justify-content: space-between;
-
-            border-top: 1px solid #222;
-
-            color: #666;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            nav {
-                padding: 20px 5%;
-            }
-
-            .nav-links {
-                gap: 15px;
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 120px 7%;
-            }
-
-            .hero h1 {
-                letter-spacing: -3px;
-            }
-
-            section {
-                padding: 80px 7%;
-            }
-
-            .project-info {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .project-info h3 {
-                font-size: 26px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 1000;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,0)
+    );
+
+    transition: .4s;
+}
+
+header.scrolled {
+    background: rgba(7,7,7,.92);
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.menu {
+    display: flex;
+    gap: 28px;
+}
+
+.menu a {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aaa;
+
+    transition: .3s;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 0 7vw 9vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(255,255,255,.09),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #080808,
+            #111
+        );
+}
+
+.home::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            #070707 0%,
+            transparent 50%
+        );
+
+    pointer-events: none;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1000px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.home h1 {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: clamp(70px, 13vw, 190px);
+
+    line-height: .82;
+
+    letter-spacing: -9px;
+
+    margin-bottom: 45px;
+}
+
+.home h1 span {
+    color: #666;
+}
+
+.home-description {
+    max-width: 570px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #999;
+
+    margin-bottom: 40px;
+}
+
+.enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid #444;
+
+    padding: 16px 24px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: .35s;
+}
+
+.enter:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.enter span {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BOOK MENU
+========================================================= */
+
+.book {
+    padding: 150px 7vw;
+
+    background: #090909;
+}
+
+.book-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 70px;
+}
+
+.book-title {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: clamp(45px, 7vw, 90px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+}
+
+.book-intro {
+    max-width: 320px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   RUBRIQUES
+========================================================= */
+
+.categories {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 2px;
+
+    background: #222;
+}
+
+.category {
+    min-height: 310px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 35px;
+
+    background: #0d0d0d;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: .5s;
+}
+
+.category::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(255,255,255,.08),
+            transparent 35%
+        );
+
+    opacity: 0;
+
+    transition: .5s;
+}
+
+.category:hover {
+    background: #151515;
+}
+
+.category:hover::before {
+    opacity: 1;
+}
+
+.category-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: #555;
+}
+
+.category h2 {
+    position: relative;
+
+    font-family: 'Manrope', sans-serif;
+
+    font-size: clamp(35px, 5vw, 65px);
+
+    letter-spacing: -3px;
+
+    font-weight: 500;
+}
+
+.category-bottom {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-description {
+    color: #777;
+
+    font-size: 12px;
+
+    max-width: 300px;
+}
+
+.arrow {
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #333;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .4s;
+}
+
+.category:hover .arrow {
+    background: white;
+    color: black;
+}
+
+
+/* =========================================================
+   PAGES / RUBRIQUES
+========================================================= */
+
+.page {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 150px 7vw 100px;
+
+    background: #080808;
+}
+
+.page.active {
+    display: block;
+    animation: pageIn .5s ease;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.page-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 70px;
+}
+
+.page-number {
+    color: #555;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.page h1 {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: clamp(55px, 9vw, 120px);
+
+    letter-spacing: -7px;
+
+    line-height: .85;
+}
+
+.back {
+    border: 1px solid #333;
+
+    padding: 12px 18px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #999;
+
+    cursor: pointer;
+
+    background: transparent;
+
+    transition: .3s;
+}
+
+.back:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+========================================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+}
+
+.project-card {
+    position: relative;
+}
+
+.project-media {
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    background: #111;
+
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.project-media img,
+.project-media video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.project-card h3 {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+.project-card p {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-project {
+    max-width: 1200px;
+
+    margin-bottom: 100px;
+}
+
+.video-container {
+    width: 100%;
+
+    background: black;
+
+    margin-bottom: 25px;
+}
+
+.video-container video {
+    display: block;
+
+    width: 100%;
+    max-height: 75vh;
+}
+
+.video-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.video-info h2 {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    color: #777;
+
+    max-width: 600px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+.photo-grid {
+    columns: 3 280px;
+
+    column-gap: 15px;
+}
+
+.photo-placeholder {
+    break-inside: avoid;
+
+    margin-bottom: 15px;
+
+    min-height: 250px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151515,
+            #0d0d0d
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #444;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-content {
+    max-width: 950px;
+}
+
+.about-lead {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: clamp(30px, 5vw, 65px);
+
+    line-height: 1.1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 70px;
+}
+
+.about-text {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+}
+
+.about-text p {
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 2px;
+
+    background: #222;
+}
+
+.skill {
+    background: #0e0e0e;
+
+    padding: 35px;
+
+    min-height: 180px;
+}
+
+.skill-number {
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 30px;
+}
+
+.skill h3 {
+    font-family: 'Manrope', sans-serif;
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.skill p {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 50px 7vw;
+
+    border-top: 1px solid #1c1c1c;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    header {
+        height: 70px;
+
+        padding: 0 5vw;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 9px;
+    }
+
+    .home {
+        padding: 0 6vw 8vh;
+    }
+
+    .home h1 {
+        font-size: 22vw;
+
+        letter-spacing: -5px;
+    }
+
+    .book,
+    .page {
+        padding: 110px 6vw 70px;
+    }
+
+    .book-header,
+    .page-top {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 30px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .category {
+        min-height: 260px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-info {
+        flex-direction: column;
+    }
+
+    .about-text {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
 
-    <nav>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="logo">
-            ALEXY
-        </div>
+<header id="header">
 
-        <div class="nav-links">
-            <a href="#projets">Projets</a>
-            <a href="#apropos">À propos</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <a href="#" class="logo" onclick="showHome()">
+        ALEXY
+    </a>
+
+    <nav class="menu">
+
+        <a href="#" onclick="showHome()">
+            Accueil
+        </a>
+
+        <a href="#book">
+            Book
+        </a>
+
+        <a href="#" onclick="openPage('about')">
+            À propos
+        </a>
 
     </nav>
 
+</header>
 
-    <!-- HERO -->
 
-    <header class="hero">
+<!-- =====================================================
+     ACCUEIL
+===================================================== -->
 
-        <div class="hero-content">
+<main id="home">
 
-            <div class="small-title">
-                Portfolio audiovisuel
+<section class="home">
+
+    <div class="home-content">
+
+        <div class="eyebrow">
+            Portfolio — Audiovisuel
+        </div>
+
+        <h1>
+            ALEXY<br>
+            <span>Créateur.</span>
+        </h1>
+
+        <p class="home-description">
+
+            Je construis progressivement mon univers autour
+            de l'image, de la vidéo, du cinéma et du montage.
+
+            Ce book rassemble mes projets, mes expérimentations
+            et les compétences que je développe.
+
+        </p>
+
+        <a href="#book" class="enter">
+
+            Entrer dans le book
+
+            <span>→</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MENU DU BOOK
+===================================================== -->
+
+<section class="book" id="book">
+
+    <div class="book-header">
+
+        <div>
+
+            <div class="eyebrow">
+                Portfolio
+            </div>
+
+            <h2 class="book-title">
+                Explorer.
+            </h2>
+
+        </div>
+
+        <p class="book-intro">
+
+            Différentes facettes de mon parcours
+            audiovisuel réunies dans un même espace.
+
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <!-- CINEMA -->
+
+        <div class="category"
+             onclick="openPage('cinema')">
+
+            <div class="category-number">
+                01
+            </div>
+
+            <h2>
+                Cinéma
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Réalisation, narration, mise en scène
+                    et projets cinématographiques.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div class="category"
+             onclick="openPage('video')">
+
+            <div class="category-number">
+                02
+            </div>
+
+            <h2>
+                Vidéo
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Plans, tournages, créations personnelles
+                    et expérimentations.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO -->
+
+        <div class="category"
+             onclick="openPage('photo')">
+
+            <div class="category-number">
+                03
+            </div>
+
+            <h2>
+                Photographie
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Images, cadrage, lumière et recherche
+                    d'une esthétique personnelle.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MONTAGE -->
+
+        <div class="category"
+             onclick="openPage('montage')">
+
+            <div class="category-number">
+                04
+            </div>
+
+            <h2>
+                Montage
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Montage vidéo, rythme, effets,
+                    compositing et post-production.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJETS -->
+
+        <div class="category"
+             onclick="openPage('projects')">
+
+            <div class="category-number">
+                05
+            </div>
+
+            <h2>
+                Projets
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Projets personnels, scolaires
+                    et expérimentations.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPETENCES -->
+
+        <div class="category"
+             onclick="openPage('skills')">
+
+            <div class="category-number">
+                06
+            </div>
+
+            <h2>
+                Compétences
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Outils, logiciels, techniques
+                    et savoir-faire.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="category"
+             onclick="openPage('about')">
+
+            <div class="category-number">
+                07
+            </div>
+
+            <h2>
+                À propos
+            </h2>
+
+            <div class="category-bottom">
+
+                <p class="category-description">
+                    Mon parcours, mes objectifs
+                    et mon univers créatif.
+                </p>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     CINEMA
+===================================================== -->
+
+<section class="page" id="cinema">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                01 — CINÉMA
             </div>
 
             <h1>
-                Alexy<br>
-                <span>Créateur.</span>
+                Cinéma
             </h1>
 
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="project-grid">
+
+        <article class="project-card">
+
+            <div class="project-media">
+
+                <div style="
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#444;
+                    letter-spacing:3px;
+                    font-size:11px;
+                ">
+                    PROJET CINÉMA 01
+                </div>
+
+            </div>
+
+            <h3>
+                Projet à venir
+            </h3>
+
             <p>
-                Passionné par l'image, la réalisation et le montage,
-                je développe mon univers à travers des projets audiovisuels
-                personnels et scolaires.
+                Cette section accueillera mes réalisations
+                cinématographiques.
             </p>
 
-            <a href="#projets" class="button">
-                Découvrir mes projets →
-            </a>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
+
+<section class="page" id="video">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                02 — VIDÉO
+            </div>
+
+            <h1>
+                Vidéo
+            </h1>
 
         </div>
 
-    </header>
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
 
 
-    <!-- PROJECTS -->
+    <div class="video-project">
 
-    <section id="projets">
-
-        <div class="section-title">
-            01 — Projets
-        </div>
-
-        <h2 class="section-heading">
-            Mon travail
-        </h2>
-
-
-        <div class="project">
+        <div class="video-container">
 
             <video
-                class="project-video"
                 controls
                 playsinline
                 preload="metadata">
@@ -373,107 +1212,564 @@
                     src="https://res.cloudinary.com/lcamfn6z/video/upload/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
                     type="video/mp4">
 
-                Votre navigateur ne supporte pas la lecture vidéo.
+                Votre navigateur ne supporte pas la vidéo.
+
             </video>
 
+        </div>
 
-            <div class="project-info">
 
-                <div class="project-number">
+        <div class="video-info">
+
+            <div>
+
+                <div class="page-number">
                     PROJET 01
                 </div>
 
-                <div>
+                <h2>
+                    Réalisation vidéo
+                </h2>
 
-                    <h3>
-                        Projet audiovisuel
-                    </h3>
+            </div>
 
-                    <p>
-                        Une réalisation personnelle explorant le cadrage,
-                        le mouvement, la lumière et le montage.
-                        Cette vidéo fait partie de mon parcours de création
-                        audiovisuelle.
-                    </p>
+            <p>
 
+                Première réalisation présentée dans mon
+                portfolio. Cette section pourra accueillir
+                mes différentes vidéos, expériences de tournage,
+                plans et créations personnelles.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PHOTOGRAPHIE
+===================================================== -->
+
+<section class="page" id="photo">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                03 — PHOTOGRAPHIE
+            </div>
+
+            <h1>
+                Photographie
+            </h1>
+
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="photo-grid">
+
+        <div class="photo-placeholder">
+            PHOTO 01
+        </div>
+
+        <div class="photo-placeholder">
+            PHOTO 02
+        </div>
+
+        <div class="photo-placeholder">
+            PHOTO 03
+        </div>
+
+        <div class="photo-placeholder">
+            PHOTO 04
+        </div>
+
+        <div class="photo-placeholder">
+            PHOTO 05
+        </div>
+
+        <div class="photo-placeholder">
+            PHOTO 06
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MONTAGE
+===================================================== -->
+
+<section class="page" id="montage">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                04 — MONTAGE
+            </div>
+
+            <h1>
+                Montage
+            </h1>
+
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p class="about-lead">
+
+            Transformer des images
+            en une histoire.
+
+        </p>
+
+        <div class="about-text">
+
+            <p>
+
+                Cette rubrique présentera mes travaux de
+                montage, mes expérimentations et mes
+                recherches autour du rythme et de la narration.
+
+            </p>
+
+            <p>
+
+                Je pourrai également y présenter mes travaux
+                réalisés avec Premiere Pro, After Effects
+                et les différentes techniques de post-production.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJETS
+===================================================== -->
+
+<section class="page" id="projects">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                05 — PROJETS
+            </div>
+
+            <h1>
+                Projets
+            </h1>
+
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="project-grid">
+
+        <article class="project-card">
+
+            <div class="project-media">
+
+                <div style="
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#444;
+                    letter-spacing:3px;
+                    font-size:11px;
+                ">
+                    PROJET 01
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="apropos" class="about">
-
-        <div class="section-title">
-            02 — À propos
-        </div>
-
-        <h2 class="section-heading">
-            Construire des<br>
-            images qui racontent.
-        </h2>
-
-        <div class="about-content">
+            <h3>
+                Premier projet
+            </h3>
 
             <p>
-                Je m'intéresse particulièrement au cinéma,
-                à la réalisation, au montage et à l'univers
-                audiovisuel dans son ensemble.
+                Présentation détaillée à venir.
             </p>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-media">
+
+                <div style="
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#444;
+                    letter-spacing:3px;
+                    font-size:11px;
+                ">
+                    PROJET 02
+                </div>
+
+            </div>
+
+            <h3>
+                Deuxième projet
+            </h3>
 
             <p>
-                Ce portfolio rassemble progressivement mes projets,
-                mes expériences et les compétences que je développe
-                au fil de mes créations.
+                Présentation détaillée à venir.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMPETENCES
+===================================================== -->
+
+<section class="page" id="skills">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                06 — COMPÉTENCES
+            </div>
+
+            <h1>
+                Compétences
+            </h1>
+
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="skills">
+
+        <div class="skill">
+
+            <div class="skill-number">
+                01
+            </div>
+
+            <h3>
+                Montage vidéo
+            </h3>
+
+            <p>
+                Montage, rythme, transitions et construction
+                narrative.
             </p>
 
         </div>
 
-    </section>
 
+        <div class="skill">
 
-    <!-- CONTACT -->
+            <div class="skill-number">
+                02
+            </div>
 
-    <section id="contact" class="contact">
+            <h3>
+                Réalisation
+            </h3>
 
-        <div class="section-title">
-            03 — Contact
+            <p>
+                Cadrage, mouvements de caméra,
+                mise en scène et direction visuelle.
+            </p>
+
         </div>
 
-        <h2>
-            Un projet ?
-        </h2>
 
-        <p>
-            Retrouvez prochainement ici mes coordonnées
-            et mes différents réseaux.
+        <div class="skill">
+
+            <div class="skill-number">
+                03
+            </div>
+
+            <h3>
+                After Effects
+            </h3>
+
+            <p>
+                Motion design, effets visuels et compositing.
+            </p>
+
+        </div>
+
+
+        <div class="skill">
+
+            <div class="skill-number">
+                04
+            </div>
+
+            <h3>
+                Photographie
+            </h3>
+
+            <p>
+                Composition, lumière, exposition
+                et recherche esthétique.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     A PROPOS
+===================================================== -->
+
+<section class="page" id="about">
+
+    <div class="page-top">
+
+        <div>
+
+            <div class="page-number">
+                07 — À PROPOS
+            </div>
+
+            <h1>
+                À propos
+            </h1>
+
+        </div>
+
+        <button class="back"
+                onclick="showHome()">
+            ← Retour au book
+        </button>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p class="about-lead">
+
+            Passionné par l'image,
+            le cinéma et la création audiovisuelle.
+
         </p>
 
-        <a href="mailto:TONEMAIL@exemple.com" class="button">
-            Me contacter
-        </a>
 
-    </section>
+        <div class="about-text">
 
+            <p>
 
-    <!-- FOOTER -->
+                Je construis progressivement mon parcours
+                dans l'audiovisuel à travers différents projets,
+                expériences et apprentissages.
 
-    <footer>
+            </p>
 
-        <div>
-            © 2026 Alexy
+            <p>
+
+                Ce portfolio a pour objectif de présenter
+                mon évolution, mes créations et les compétences
+                que je développe au fil du temps.
+
+            </p>
+
         </div>
 
-        <div>
-            Portfolio audiovisuel
-        </div>
+    </div>
 
-    </footer>
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <span>
+        © 2026 — ALEXY
+    </span>
+
+    <span>
+        PORTFOLIO AUDIOVISUEL
+    </span>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+const pages = [
+    'cinema',
+    'video',
+    'photo',
+    'montage',
+    'projects',
+    'skills',
+    'about'
+];
+
+
+function openPage(page) {
+
+    document.getElementById('home').style.display = 'none';
+
+    pages.forEach(id => {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+
+            element.classList.remove('active');
+
+        }
+
+    });
+
+    const selected = document.getElementById(page);
+
+    if (selected) {
+
+        selected.classList.add('active');
+
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+    });
+
+}
+
+
+function showHome() {
+
+    pages.forEach(id => {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+
+            element.classList.remove('active');
+
+        }
+
+    });
+
+    document.getElementById('home').style.display = 'block';
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+    });
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+window.addEventListener('scroll', () => {
+
+    const header =
+        document.getElementById('header');
+
+    if (window.scrollY > 50) {
+
+        header.classList.add('scrolled');
+
+    } else {
+
+        header.classList.remove('scrolled');
+
+    }
+
+});
+
+
+/* =========================================================
+   URL HASH
+========================================================= */
+
+function checkHash() {
+
+    const hash =
+        window.location.hash.replace('#', '');
+
+    if (pages.includes(hash)) {
+
+        openPage(hash);
+
+    }
+
+}
+
+window.addEventListener(
+    'hashchange',
+    checkHash
+);
+
+checkHash();
+
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
