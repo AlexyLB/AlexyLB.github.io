@@ -149,9 +149,7 @@ const portfolio = {
             description:
                 "Une réalisation personnelle autour du mouvement, du cadrage et de l'image.",
             url:
-                "<source
-                     src="https://res.cloudinary.com/lcamfn6z/video/upload/q_auto,f_auto/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
-                     type="video/mp4">"
+                "https://res.cloudinary.com/lcamfn6z/video/upload/q_auto,f_auto/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
         }
 
         // ⭐ AJOUTE TES PROCHAINES VIDÉOS ICI
