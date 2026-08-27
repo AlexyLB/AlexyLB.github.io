@@ -33,7 +33,7 @@ const portfolio = {
     descriptionAccueil:
         "Ce book rassemble mes projets, mes expérimentations et les compétences que je développe dans le domaine audiovisuel.",
 
-    email: "TON_EMAIL_ICI",
+    email: "Alexylebars62@gmail.com",
 
     instagram: "TON_INSTAGRAM_ICI",
 
@@ -149,7 +149,9 @@ const portfolio = {
             description:
                 "Une réalisation personnelle autour du mouvement, du cadrage et de l'image.",
             url:
-                "https://res.cloudinary.com/lcamfn6z/video/upload/q_auto,f_auto/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
+                "<source
+                     src="https://res.cloudinary.com/lcamfn6z/video/upload/q_auto,f_auto/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
+                     type="video/mp4">"
         }
 
         // ⭐ AJOUTE TES PROCHAINES VIDÉOS ICI
