@@ -205,11 +205,11 @@ const portfolio = {
     projets: [
 
         {
-            titre: "Projet 01",
-            annee: "2026",
+            titre: "Récit photo",
+            annee: "2025",
             description:
-                "Présentation détaillée du projet.",
-            image: ""
+                "Ce Récit photo est mon premier projet",
+            image: "documents/projet-1.pdf"
         },
 
         {
