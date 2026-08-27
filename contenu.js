@@ -208,7 +208,7 @@ const portfolio = {
             titre: "Récit photo",
             annee: "2025",
             description:
-                `Voici mon premier projet audiovisuel, réalisé en classe de seconde. Il est le premier des trois travaux demandés au cours du lycée.
+                `Voici mon premier projet audiovisuel. Il est le premier des trois travaux demandés au cours du lycée.
                  Ce projet terminait l'année de seconde et l'apprentissage de l'image, avec notamment de nombreux plans, cadrages et luminosités différentes attendus.
                  Il raconte une réflexion, un questionnement sur le deuil à l'aide d'un twist. Celui-ci était d'ailleurs spécifié et voulu dans la consigne de travail.`,
             image: "documents/projet-1.png"
