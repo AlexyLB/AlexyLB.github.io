@@ -2,7 +2,7 @@
    ⭐ CONTENU DE TON BOOK — ALEXY
    =========================================================
 
-   IMPORTANT :
+   IMPORTANT : 
    C'est principalement CE fichier que tu modifieras.
 
    Tu peux modifier :
