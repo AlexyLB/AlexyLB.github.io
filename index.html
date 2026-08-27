@@ -3,20 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexy — Portfolio audiovisuel</title>
+
+    <title>Alexy — Portfolio Audiovisuel</title>
+
+    <meta name="description" content="Portfolio audiovisuel d'Alexy — réalisation, montage et création vidéo.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 25px 6%;
+
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.8),
+                transparent
+            );
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            opacity: 0.75;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 70% 40%,
+                    rgba(255,255,255,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080808,
+                    #111111
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .small-title {
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 120px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #888;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 45px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            border: 1px solid #555;
+            border-radius: 100px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 120px 8%;
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: clamp(35px, 5vw, 65px);
+            line-height: 1;
+            margin-bottom: 60px;
+        }
+
+        /* PROJECT */
+
+        .project {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .project-video {
+            width: 100%;
+            border-radius: 12px;
+
+            display: block;
+
+            background: black;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.5);
+        }
+
+        .project-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+
+            margin-top: 45px;
+        }
+
+        .project-number {
+            color: #666;
+            font-size: 14px;
+            letter-spacing: 3px;
+        }
+
+        .project-info h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .project-info p {
+            color: #999;
+            max-width: 650px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #101010;
+        }
+
+        .about-content {
+            max-width: 850px;
+        }
+
+        .about-content p {
+            color: #aaa;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(45px, 7vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 35px;
+        }
+
+        .contact p {
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 40px 8%;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-top: 1px solid #222;
+
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 120px 7%;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 80px 7%;
+            }
+
+            .project-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-info h3 {
+                font-size: 26px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Alexy</h1>
-    <h2>Portfolio audiovisuel</h2>
+    <!-- NAVIGATION -->
 
-    <p>Bienvenue sur mon portfolio.</p>
+    <nav>
 
-    <h2>Mes projets</h2>
+        <div class="logo">
+            ALEXY
+        </div>
 
-    <h3>Projet 01</h3>
-    <p>Présentation de mon projet audiovisuel.</p>
+        <div class="nav-links">
+            <a href="#projets">Projets</a>
+            <a href="#apropos">À propos</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Portfolio audiovisuel
+            </div>
+
+            <h1>
+                Alexy<br>
+                <span>Créateur.</span>
+            </h1>
+
+            <p>
+                Passionné par l'image, la réalisation et le montage,
+                je développe mon univers à travers des projets audiovisuels
+                personnels et scolaires.
+            </p>
+
+            <a href="#projets" class="button">
+                Découvrir mes projets →
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projets">
+
+        <div class="section-title">
+            01 — Projets
+        </div>
+
+        <h2 class="section-heading">
+            Mon travail
+        </h2>
+
+
+        <div class="project">
+
+            <video
+                class="project-video"
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="https://res.cloudinary.com/lcamfn6z/video/upload/v1787789301/dji_export_20260704_192510_1783185910380_editor.mp4"
+                    type="video/mp4">
+
+                Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+
+
+            <div class="project-info">
+
+                <div class="project-number">
+                    PROJET 01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Projet audiovisuel
+                    </h3>
+
+                    <p>
+                        Une réalisation personnelle explorant le cadrage,
+                        le mouvement, la lumière et le montage.
+                        Cette vidéo fait partie de mon parcours de création
+                        audiovisuelle.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="apropos" class="about">
+
+        <div class="section-title">
+            02 — À propos
+        </div>
+
+        <h2 class="section-heading">
+            Construire des<br>
+            images qui racontent.
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                Je m'intéresse particulièrement au cinéma,
+                à la réalisation, au montage et à l'univers
+                audiovisuel dans son ensemble.
+            </p>
+
+            <p>
+                Ce portfolio rassemble progressivement mes projets,
+                mes expériences et les compétences que je développe
+                au fil de mes créations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+        <div class="section-title">
+            03 — Contact
+        </div>
+
+        <h2>
+            Un projet ?
+        </h2>
+
+        <p>
+            Retrouvez prochainement ici mes coordonnées
+            et mes différents réseaux.
+        </p>
+
+        <a href="mailto:TONEMAIL@exemple.com" class="button">
+            Me contacter
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 Alexy
+        </div>
+
+        <div>
+            Portfolio audiovisuel
+        </div>
+
+    </footer>
 
 </body>
 </html>
